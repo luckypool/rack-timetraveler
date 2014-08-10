@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rack/time_traveler/version'
+require 'rack/timetraveler/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'rack-time_traveler'
+  spec.name          = 'rack-timetraveler'
   spec.version       = Rack::TimeTraveler::VERSION
   spec.authors       = ['luckypool']
   spec.email         = ['luckypool314@gmail.com']
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.description   = 'You can be a Time Traveler.'
+  spec.summary       = spec.description
   spec.homepage      = ''
   spec.license       = 'MIT'
 

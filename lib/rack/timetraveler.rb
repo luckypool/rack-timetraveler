@@ -1,4 +1,4 @@
-require "rack/time_traveler/version"
+require "rack/timetraveler/version"
 
 module Rack
   module TimeTraveler
