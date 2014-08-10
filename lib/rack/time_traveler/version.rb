@@ -1,5 +1,9 @@
 module Rack
   module TimeTraveler
-    VERSION = "0.0.1"
+    SIGNATURE = [0, 0, 1]
+    VERSION   = SIGNATURE.join('.')
+    def self.version
+      VERSION
+    end
   end
 end
