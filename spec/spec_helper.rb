@@ -5,6 +5,9 @@ require 'rack/test'
 require 'rspec'
 require 'rack/timetraveler'
 
+require 'coveralls'
+Coveralls.wear!
+
 RSpec.configure do |conf|
   conf.include Rack::Test::Methods
 end
