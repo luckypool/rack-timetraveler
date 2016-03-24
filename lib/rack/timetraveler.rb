@@ -32,7 +32,7 @@ class Rack::TimeTraveler
   def validate_timestamp(env)
     timestamp = fetch_timestamp(env)
     return if timestamp.nil?
-    Time.at(timestamp.to_i)
+    Time.at(Integer(timestamp))
   rescue
     nil
   end
