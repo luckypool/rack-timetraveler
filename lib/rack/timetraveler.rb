@@ -7,7 +7,7 @@ class Rack::TimeTraveler
   def initialize(app, options = {})
     @app, @options = app, options
 
-    default_fetcher = lambda { |env| env['RACK_TIME_TRAVELER_TIMESTAMP'] }
+    default_fetcher = lambda { |env| fetch_from_env(env) }
     @options[:timestamp_fetcher] ||= default_fetcher
 
     @options[:enabled_environments] ||= [:development, :test]
@@ -16,6 +16,7 @@ class Rack::TimeTraveler
   def call(env)
     return @app.call(env) unless enabled?
 
+    puts env.inspect
     time = validate_timestamp(env)
 
     return @app.call(env) if time.nil?
@@ -40,5 +41,10 @@ class Rack::TimeTraveler
   def fetch_timestamp(env)
     fetcher = @options[:timestamp_fetcher]
     fetcher.call(env)
+  end
+
+  def fetch_from_env(env)
+    env['HTTP_RACK_TIME_TRAVELER_TIMESTAMP'] ||
+      env['RACK_TIME_TRAVELER_TIMESTAMP']
   end
 end
