@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/luckypool/rack-timetraveler.svg?branch=master)](https://travis-ci.org/luckypool/rack-timetraveler)
 [![Coverage Status](https://coveralls.io/repos/github/luckypool/rack-timetraveler/badge.svg?branch=master)](https://coveralls.io/github/luckypool/rack-timetraveler?branch=master)
 [![Dependency Status](https://gemnasium.com/luckypool/rack-timetraveler.svg)](https://gemnasium.com/luckypool/rack-timetraveler)
+[![Gem Version](https://badge.fury.io/rb/rack-timetraveler.svg)](https://badge.fury.io/rb/rack-timetraveler)
 
 
 Rack::TimeTraveler is a Rack::Middleware, and provides "time travel" capabilities.
