@@ -8,6 +8,29 @@ describe Rack::TimeTraveler do
     }.to_app
   end
 
+  def app
+    build_app
+  end
+
+  context 'when using default fetcer (using HEADER)' do
+    let(:timestamp) { 0 }
+    it 'travels to the epocktime' do
+      get '/', {}, 'RACK_TIME_TRAVELER_TIMESTAMP' => timestamp
+      expect(last_response.status).to eq 200
+      expect(last_response.body).to eq "Time is #{timestamp}"
+    end
+
+    context 'given invalid timestamp' do
+      let(:timestamp) { 'invalid' }
+      it 'travels to the epocktime' do
+        get '/', {}, 'RACK_TIME_TRAVELER_TIMESTAMP' => timestamp
+        expect(last_response.status).to eq 200
+        expect(last_response.body).to eq "Time is #{Time.now.to_i}"
+      end
+    end
+  end
+
+
   context 'when disabled traveling' do
     def app
       build_app(enabled_environments: [:not_test])
@@ -17,19 +40,6 @@ describe Rack::TimeTraveler do
       get '/', {}, 'RACK_TIME_TRAVELER_TIMESTAMP' => 0
       expect(last_response.status).to eq 200
       expect(last_response.body).to eq "Time is #{Time.now.to_i}"
-    end
-  end
-
-  context 'when using default fetcer (using HEADER)' do
-    def app
-      build_app
-    end
-
-    let(:timestamp) { 0 }
-    it 'travels to the epocktime' do
-      get '/', {}, 'RACK_TIME_TRAVELER_TIMESTAMP' => timestamp
-      expect(last_response.status).to eq 200
-      expect(last_response.body).to eq "Time is #{timestamp}"
     end
   end
 
