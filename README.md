@@ -1,5 +1,9 @@
 # Rack::TimeTraveler
 
+[![Build Status](https://travis-ci.org/luckypool/rack-timetraveler.svg?branch=master)](https://travis-ci.org/luckypool/rack-timetraveler)
+[![Coverage Status](https://coveralls.io/repos/github/luckypool/rack-timetraveler/badge.svg?branch=master)](https://coveralls.io/github/luckypool/rack-timetraveler?branch=master)
+
+
 TODO: Write a gem description
 
 ## Installation
