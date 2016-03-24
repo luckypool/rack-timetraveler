@@ -25,19 +25,23 @@ Or install it yourself as:
 
 Simple usage 
 
-    use Rack::TimeTraveler
+```ruby
+use Rack::TimeTraveler
+```
 
 If you needs customized usage
 
-    @fetcher = lambda do |env|
-      # You can fetch customized timestamp.
-      # Default is fetch from ENV['RACK_TIME_TRAVELER_TIMESTAMP']
-      0
-    end
-    
-    use Rack::TimeTraveler,
-      timestamp_fetcher: @fetcher,          # You can also fetch from cache/DB
-      enabled_environments: [:development]  # enabled only development
+```ruby
+@fetcher = lambda do |env|
+  # You can fetch customized timestamp.
+  # Default is fetch from ENV['RACK_TIME_TRAVELER_TIMESTAMP']
+  0
+end
+
+use Rack::TimeTraveler,
+  timestamp_fetcher: @fetcher,          # You can also fetch from cache/DB
+  enabled_environments: [:development]  # enabled only development
+```
 
 #### Examples
 
