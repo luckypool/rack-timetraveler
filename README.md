@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/luckypool/rack-timetraveler.svg?branch=master)](https://travis-ci.org/luckypool/rack-timetraveler)
 [![Coverage Status](https://coveralls.io/repos/github/luckypool/rack-timetraveler/badge.svg?branch=master)](https://coveralls.io/github/luckypool/rack-timetraveler?branch=master)
+[![Dependency Status](https://gemnasium.com/luckypool/rack-timetraveler.svg)](https://gemnasium.com/luckypool/rack-timetraveler)
 
 
 TODO: Write a gem description
