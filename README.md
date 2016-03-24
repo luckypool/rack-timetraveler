@@ -5,7 +5,7 @@
 [![Dependency Status](https://gemnasium.com/luckypool/rack-timetraveler.svg)](https://gemnasium.com/luckypool/rack-timetraveler)
 
 
-TODO: Write a gem description
+Rack::TimeTraveler is a Rack::Middleware, and provides "time travel" capabilities.
 
 ## Installation
 
@@ -23,7 +23,31 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Simple usage 
+
+    use Rack::TimeTraveler
+
+If you needs customized usage
+
+    @fetcher = lambda do |env|
+      # You can fetch customized timestamp.
+      # Default is fetch from ENV['RACK_TIME_TRAVELER_TIMESTAMP']
+      0
+    end
+    
+    use Rack::TimeTraveler,
+      timestamp_fetcher: @fetcher,          # You can also fetch from cache/DB
+      enabled_environments: [:development]  # enabled only development
+
+#### Examples
+
+See [examples/app_1.ru](./examples/app_1.ru)
+
+    $ bundle exec rackup examples/app_1.ru
+    $ curl localhost:9292
+    $ curl localhost:9292 -H 'RACK_TIME_TRAVELER_TIMESTAMP:0'
+    Time is 1970-01-01 09:00:00 +0900
+
 
 ## Contributing
 
