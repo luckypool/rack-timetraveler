@@ -16,7 +16,6 @@ class Rack::TimeTraveler
   def call(env)
     return @app.call(env) unless enabled?
 
-    puts env.inspect
     time = validate_timestamp(env)
 
     return @app.call(env) if time.nil?
